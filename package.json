@@ -4,8 +4,7 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
-    "test": "jest"
+    "lint:fix": "eslint . --fix"
   },
   "keywords": [],
   "author": "",
