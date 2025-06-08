@@ -34,3 +34,4 @@ jobs:
 
     # - name: Run E2E tests (optional) # Крок 6 (опціонально): Запустити E2E тести (якщо налаштовані)
     #   run: npm run test:e2e # Приклад скрипту для E2E тестів
+    
