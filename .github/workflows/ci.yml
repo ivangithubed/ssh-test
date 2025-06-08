@@ -1,0 +1,36 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches:
+      - main # Запускати при пуші в гілку main
+      - feature/* # Запускати при пуші в будь-яку гілку, що починається з 'feature/'
+  pull_request:
+    branches:
+      - main # Запускати при відкритті/оновленні Pull Request в гілку main
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest # Використовувати віртуальну машину на Linux
+
+    steps:
+    - name: Checkout code # Крок 1: Отримати ваш код з репозиторію
+      uses: actions/checkout@v4
+
+    - name: Set up Node.js # Крок 2: Налаштувати середовище Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20' # Виберіть версію Node.js
+
+    - name: Install dependencies # Крок 3: Встановити залежності проекту
+      run: npm install
+
+    - name: Run ESLint (code linting) # Крок 4: Запустити лінтер (рекомендовано для якості коду)
+      # Попередньо має бути налаштований ESLint у проекті
+      run: npm run lint # Якщо у вас є скрипт 'lint' у package.json
+
+    - name: Run unit tests # Крок 5: Запустити юніт-тести
+      run: npm test # Це запустить скрипт "test" з package.json (наш Jest)
+
+    # - name: Run E2E tests (optional) # Крок 6 (опціонально): Запустити E2E тести (якщо налаштовані)
+    #   run: npm run test:e2e # Приклад скрипту для E2E тестів
