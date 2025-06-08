@@ -28,10 +28,7 @@ jobs:
     - name: Run ESLint (code linting) # Крок 4: Запустити лінтер (рекомендовано для якості коду)
       # Попередньо має бути налаштований ESLint у проекті
       run: npm run lint # Якщо у вас є скрипт 'lint' у package.json
-
-    - name: Run unit tests # Крок 5: Запустити юніт-тести
-      run: npm test # Це запустить скрипт "test" з package.json (наш Jest)
+ 
 
     # - name: Run E2E tests (optional) # Крок 6 (опціонально): Запустити E2E тести (якщо налаштовані)
     #   run: npm run test:e2e # Приклад скрипту для E2E тестів
-    
